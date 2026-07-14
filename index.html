@@ -248,30 +248,20 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Although deep reinforcement learning has significantly advanced the perceptual-motor control
-            of humanoid robots, enabling them to navigate various complex terrains through terrain perception,
-            the success rate of existing strategies remains low on narrow terrains with only a single feasible
-            path—such as narrow beams or single-file balance beams. In such scenarios, the feasible landing
-            areas are unique and narrow, leaving virtually no margin for error, any deviation in foot placement
-            will result in a fall, making such terrains one of the most challenging scenarios in perceptual-motor
-            control. Attention-based map encoding, which uses body perception as a query to dynamically extract
-            footstep-relevant local terrain from the robot’s center elevation map, has achieved significant progress
-            on general sparse terrain. However, on the aforementioned narrow terrains, the terrain representation
-            obtained through global weighting incorporates a large amount of irrelevant surrounding signals, making
-            it difficult to sharpen the unique feasible footstep area. To address this challenge, this paper proposes
-            GAME (Gated Attention-based Map Encoding), an end-to-end humanoid perceptual-motor control framework
-            designed for narrow and extreme terrains. It introduces two distinct mechanisms into query-driven
-            attention: channel-wise gating continuously modulates the terrain representation at the attention output
-            based on data dependencies, amplifying feature channels carrying foot placement signals while suppressing
-            irrelevant interference channels, enabling the output to focus more precisely on critical foot placement
-            regions; channel-wise attention pooling aggregates the entire terrain into a global context vector and
-            concatenates it with the query, supplementing the query with global terrain information so that the policy
-            can localize foot placement points within a more comprehensive terrain view. At Isaac Lab, using the
-            Unitree G1 (29 degrees of freedom) as our platform, we compared GAME with AME under controlled
-            conditions—with the same MDP, terrain, and network capacity, differing only in the terrain encoder.
-            The experiments demonstrate that, without compromising other terrain performance metrics, GAME
-            significantly improves passage success rates on narrow and extreme terrains, validating the effectiveness
-            of the proposed mechanism for this long-standing challenge.
+            Deep reinforcement learning has enabled humanoid robots to traverse a broad range of complex terrains with
+            the aid of terrain perception. Yet narrow terrains that admit only a single feasible path, such as balance
+            beams and single-file stepping stones, remain a long-standing challenge for perceptive locomotion, since one
+            misplaced footstep there ends in a fall. Conventional terrain encoders mix abundant irrelevant signals from
+            the surroundings into the representation and struggle to bring the sole viable foothold region into sharp
+            focus. This paper presents Gated Attention-based Map Encoding, or GAME, an end-to-end perceptive locomotion
+            framework for humanoid robots. Central to GAME are two complementary mechanisms embedded in query-driven
+            attention. Channel-wise gating modulates the terrain representation at the attention output in a
+            data-dependent, continuous manner, amplifying the feature channels that carry foothold cues while
+            suppressing distracting ones, so that the encoding concentrates on the decisive foothold regions.
+            Channel-wise attention pooling condenses the entire terrain into a global context vector at the encoder
+            input and appends it to the query, letting the policy localize footholds under a global view of the terrain.
+            Experiments on the Unitree G1 humanoid with 29 degrees of freedom show that GAME delivers robust locomotion
+            at 1.5 m/s across diverse discrete terrains without sacrificing performance on conventional ones.
           </p>
 <!--          <p>-->
 <!--            1-->
@@ -287,7 +277,7 @@
         <h2 class="title is-3">Video</h2>
         <div class="content has-text-centered">
           <video controls playsinline width="100%">
-            <source src="./static/videos/output.mp4" type="video/mp4">
+            <source src="./static/videos/gavideo_hq.mp4" type="video/mp4">
           </video>
         </div>
       </div>
